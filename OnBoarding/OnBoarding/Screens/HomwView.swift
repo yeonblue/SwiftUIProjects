@@ -14,17 +14,44 @@ struct HomwView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Home")
-                .font(.largeTitle)
-        }
         
-        Button {
-          isOnboardingViewActive = true
-        } label: {
-            Text("Restart")
-        }
+        VStack {
+            
+            // MARK: - Header
+            Spacer()
+            ZStack {
+                CircleGroupView(shapeColor: .gray, shapeOpacity: 0.1)
+                Image("character-2")
+                    .resizable()
+                    .scaledToFit()
+                .padding()
+            }
+            
+            // MARK: - Center
+            Text("Send your friends directly application installation file (APK) and link to the app's page on the play store Market. Using this application.")
+                .font(.title3)
+                .fontWeight(.light)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            // MARK: - Footer
+            // Asset의 Accent Color는 버튼 등의 default color
+            Spacer()
+            Button {
+                isOnboardingViewActive = true
+            } label: {
+                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                Text("Restart") // HStack은 필요없음
+                    .font(.system(.title3, design: .rounded))
+                    .fontWeight(.bold)
+                
+            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .controlSize(.large)
 
+        }
     }
 }
 
