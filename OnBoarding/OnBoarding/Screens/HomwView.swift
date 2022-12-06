@@ -11,6 +11,7 @@ struct HomwView: View {
     
     // MARK: - Properties
     @AppStorage("onBoarding") var isOnboardingViewActive = false
+    @State private var isAnimating = false
     
     // MARK: - Body
     var body: some View {
@@ -24,7 +25,9 @@ struct HomwView: View {
                 Image("character-2")
                     .resizable()
                     .scaledToFit()
-                .padding()
+                    .padding()
+                    .offset(y: isAnimating ? 35 : -35)
+                    .animation(.easeOut(duration: 3).repeatForever(), value: isAnimating)
             }
             
             // MARK: - Center
@@ -39,7 +42,10 @@ struct HomwView: View {
             // Asset의 Accent Color는 버튼 등의 default color
             Spacer()
             Button {
-                isOnboardingViewActive = true
+                withAnimation {
+                    playSound(sound: "success", type: "m4a")
+                    isOnboardingViewActive = true
+                }
             } label: {
                 Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                 Text("Restart") // HStack은 필요없음
@@ -51,6 +57,10 @@ struct HomwView: View {
             .buttonBorderShape(.capsule)
             .controlSize(.large)
 
+        }.onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                isAnimating = true
+            })
         }
     }
 }
