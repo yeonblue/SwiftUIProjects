@@ -11,6 +11,8 @@ struct OnBoardingView: View {
     
     // MARK: - Properties
     @AppStorage("onBoarding") var isOnboardingViewActive = true
+    @State private var buttonWidth = UIScreen.main.bounds.width - 80
+    @State private var buttonOffset: CGFloat = 0.0
     
     // MARK: - Body
     var body: some View {
@@ -57,7 +59,7 @@ struct OnBoardingView: View {
                         .font(.system(.title3, design: .rounded))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .offset(x: 16) // 변경해서 애니메이션 주기 가능, x축 이동
+                        .offset(x: 16)
                     
                     Capsule()
                         .fill(.white.opacity(0.2))
@@ -69,7 +71,7 @@ struct OnBoardingView: View {
                     HStack {
                         Capsule()
                             .fill(Color("MainRed"))
-                            .frame(width: 80)
+                            .frame(width: buttonOffset + 80)
                         
                         Spacer()
                     }
@@ -88,14 +90,29 @@ struct OnBoardingView: View {
                         }
                         .foregroundColor(.white)
                         .frame(width: 80, height: 80, alignment: .center)
-                        .onTapGesture {
-                            isOnboardingViewActive = false
-                        }
+                        .offset(x: buttonOffset)
+                        .gesture(
+                            DragGesture()
+                                .onChanged({ gesture in
+                                    if gesture.translation.width > 0
+                                    && buttonOffset <= buttonWidth - 80 { // 오른쪽으로 이동할 경우
+                                        buttonOffset = gesture.translation.width
+                                    }
+                                })
+                                .onEnded({ _ in
+                                    if buttonOffset > buttonWidth / 2 {
+                                        buttonOffset = buttonOffset - 80
+                                        isOnboardingViewActive = false
+                                    } else {
+                                        buttonOffset = 0
+                                    }
+                                })
+                        )
                         
                         Spacer()
                     }
                 }
-                .frame(height: 80)
+                .frame(width: buttonWidth, height: 80)
                 .padding()
             }
         }
