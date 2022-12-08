@@ -13,6 +13,10 @@ struct ContentView: View {
     @State private var isAnimating = false
     @State private var imageScale: CGFloat = 1
     @State private var imageOffset: CGSize = .zero
+    @State private var isDrawerOpen = true
+    
+    let pages = pagesData
+    @State private var pageIdx = 1
     
     // MARK: - Fuctions
     func resetImageState() {
@@ -20,6 +24,10 @@ struct ContentView: View {
             imageScale = 1
             imageOffset = .zero
         }
+    }
+    
+    func currentPageName() -> String {
+        return pages[pageIdx - 1].imageName
     }
     
     // MARK: - Body
@@ -30,7 +38,7 @@ struct ContentView: View {
                 
                 Color.clear
                 
-                Image("magazine-front-cover")
+                Image(currentPageName())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(10)
@@ -141,6 +149,50 @@ struct ContentView: View {
                     .opacity(isAnimating ? 1 : 0)
                 }
                 .padding(.bottom, 30)
+            }
+            // MARK: - Drawer
+            .overlay(alignment: .topTrailing) {
+                HStack(spacing: 8) {
+                    
+                    // MARK: - Drawer Handle
+                    Image(systemName: isDrawerOpen ? "chevron.compact.right"
+                                                   : "chevron.compact.left")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 40)
+                        .padding(8)
+                        .foregroundStyle(.secondary)
+                        .onTapGesture {
+                            withAnimation(.easeOut(duration: 0.1)) {
+                                isDrawerOpen.toggle()
+                            }
+                        }
+                    
+                    Spacer()
+                    
+                    // MARK: - Drawer Thumbnails
+                    ForEach(pages) { page in
+                        Image(page.thumbnailName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80)
+                            .cornerRadius(8)
+                            .shadow(radius: 4)
+                            .opacity(isAnimating ? 1 : 0)
+                            .onTapGesture {
+                                isAnimating = true
+                                pageIdx = page.id
+                            }
+                    }
+                }
+                .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+                .background(.ultraThinMaterial)
+                .cornerRadius(12)
+                .opacity(isAnimating ? 1 : 0)
+                .frame(width: 260)
+                .padding(.top, UIScreen.main.bounds.height / 12)
+                .offset(x: isDrawerOpen ? 0 : 200)
+                .animation(.easeOut, value: isDrawerOpen)
             }
         }
     }

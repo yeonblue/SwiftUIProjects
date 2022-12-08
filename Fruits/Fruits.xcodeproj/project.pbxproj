@@ -7,30 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45BD5EC1293F18E300939603 /* PinchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5EC0293F18E300939603 /* PinchApp.swift */; };
-		45BD5EC3293F18E300939603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5EC2293F18E300939603 /* ContentView.swift */; };
-		45BD5EC5293F18E500939603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BD5EC4293F18E500939603 /* Assets.xcassets */; };
-		45BD5EC8293F18E500939603 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BD5EC7293F18E500939603 /* Preview Assets.xcassets */; };
-		45BD5ED32940651800939603 /* InfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5ED22940651800939603 /* InfoPanelView.swift */; };
-		45BD5ED529406FCE00939603 /* ControlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5ED429406FCE00939603 /* ControlImageView.swift */; };
-		45BD5ED72941721100939603 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5ED62941721100939603 /* PageModel.swift */; };
-		45BD5ED92941739600939603 /* PageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5ED82941739600939603 /* PageData.swift */; };
+		45BD5EE72941798800939603 /* FruitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5EE62941798800939603 /* FruitsApp.swift */; };
+		45BD5EE92941798800939603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5EE82941798800939603 /* ContentView.swift */; };
+		45BD5EEB2941798900939603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BD5EEA2941798900939603 /* Assets.xcassets */; };
+		45BD5EEE2941798900939603 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BD5EED2941798900939603 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		45BD5EBD293F18E300939603 /* Pinch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		45BD5EC0293F18E300939603 /* PinchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchApp.swift; sourceTree = "<group>"; };
-		45BD5EC2293F18E300939603 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		45BD5EC4293F18E500939603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		45BD5EC7293F18E500939603 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		45BD5ED22940651800939603 /* InfoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanelView.swift; sourceTree = "<group>"; };
-		45BD5ED429406FCE00939603 /* ControlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlImageView.swift; sourceTree = "<group>"; };
-		45BD5ED62941721100939603 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
-		45BD5ED82941739600939603 /* PageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageData.swift; sourceTree = "<group>"; };
+		45BD5EE32941798800939603 /* Fruits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruits.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BD5EE62941798800939603 /* FruitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsApp.swift; sourceTree = "<group>"; };
+		45BD5EE82941798800939603 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		45BD5EEA2941798900939603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45BD5EED2941798900939603 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		45BD5EBA293F18E300939603 /* Frameworks */ = {
+		45BD5EE02941798800939603 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,113 +32,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45BD5EB4293F18E300939603 = {
+		45BD5EDA2941798800939603 = {
 			isa = PBXGroup;
 			children = (
-				45BD5EBF293F18E300939603 /* Pinch */,
-				45BD5EBE293F18E300939603 /* Products */,
+				45BD5EE52941798800939603 /* Fruits */,
+				45BD5EE42941798800939603 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		45BD5EBE293F18E300939603 /* Products */ = {
+		45BD5EE42941798800939603 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45BD5EBD293F18E300939603 /* Pinch.app */,
+				45BD5EE32941798800939603 /* Fruits.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45BD5EBF293F18E300939603 /* Pinch */ = {
+		45BD5EE52941798800939603 /* Fruits */ = {
 			isa = PBXGroup;
 			children = (
-				45BD5ED12940650800939603 /* View */,
-				45BD5ED0293F1BBF00939603 /* Data */,
-				45BD5ECF293F1BB700939603 /* Model */,
-				45BD5ECE293F1B8400939603 /* Screen */,
-				45BD5EC4293F18E500939603 /* Assets.xcassets */,
-				45BD5EC6293F18E500939603 /* Preview Content */,
-				45BD5EC0293F18E300939603 /* PinchApp.swift */,
+				45BD5EE62941798800939603 /* FruitsApp.swift */,
+				45BD5EE82941798800939603 /* ContentView.swift */,
+				45BD5EEA2941798900939603 /* Assets.xcassets */,
+				45BD5EEC2941798900939603 /* Preview Content */,
 			);
-			path = Pinch;
+			path = Fruits;
 			sourceTree = "<group>";
 		};
-		45BD5EC6293F18E500939603 /* Preview Content */ = {
+		45BD5EEC2941798900939603 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				45BD5EC7293F18E500939603 /* Preview Assets.xcassets */,
+				45BD5EED2941798900939603 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		45BD5ECE293F1B8400939603 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				45BD5EC2293F18E300939603 /* ContentView.swift */,
-				45BD5ED429406FCE00939603 /* ControlImageView.swift */,
-			);
-			path = Screen;
-			sourceTree = "<group>";
-		};
-		45BD5ECF293F1BB700939603 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				45BD5ED62941721100939603 /* PageModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		45BD5ED0293F1BBF00939603 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				45BD5ED82941739600939603 /* PageData.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		45BD5ED12940650800939603 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				45BD5ED22940651800939603 /* InfoPanelView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45BD5EBC293F18E300939603 /* Pinch */ = {
+		45BD5EE22941798800939603 /* Fruits */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45BD5ECB293F18E500939603 /* Build configuration list for PBXNativeTarget "Pinch" */;
+			buildConfigurationList = 45BD5EF12941798900939603 /* Build configuration list for PBXNativeTarget "Fruits" */;
 			buildPhases = (
-				45BD5EB9293F18E300939603 /* Sources */,
-				45BD5EBA293F18E300939603 /* Frameworks */,
-				45BD5EBB293F18E300939603 /* Resources */,
+				45BD5EDF2941798800939603 /* Sources */,
+				45BD5EE02941798800939603 /* Frameworks */,
+				45BD5EE12941798800939603 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Pinch;
-			productName = Pinch;
-			productReference = 45BD5EBD293F18E300939603 /* Pinch.app */;
+			name = Fruits;
+			productName = Fruits;
+			productReference = 45BD5EE32941798800939603 /* Fruits.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		45BD5EB5293F18E300939603 /* Project object */ = {
+		45BD5EDB2941798800939603 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					45BD5EBC293F18E300939603 = {
+					45BD5EE22941798800939603 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
 			};
-			buildConfigurationList = 45BD5EB8293F18E300939603 /* Build configuration list for PBXProject "Pinch" */;
+			buildConfigurationList = 45BD5EDE2941798800939603 /* Build configuration list for PBXProject "Fruits" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -154,46 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 45BD5EB4293F18E300939603;
-			productRefGroup = 45BD5EBE293F18E300939603 /* Products */;
+			mainGroup = 45BD5EDA2941798800939603;
+			productRefGroup = 45BD5EE42941798800939603 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45BD5EBC293F18E300939603 /* Pinch */,
+				45BD5EE22941798800939603 /* Fruits */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		45BD5EBB293F18E300939603 /* Resources */ = {
+		45BD5EE12941798800939603 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BD5EC8293F18E500939603 /* Preview Assets.xcassets in Resources */,
-				45BD5EC5293F18E500939603 /* Assets.xcassets in Resources */,
+				45BD5EEE2941798900939603 /* Preview Assets.xcassets in Resources */,
+				45BD5EEB2941798900939603 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		45BD5EB9293F18E300939603 /* Sources */ = {
+		45BD5EDF2941798800939603 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BD5ED529406FCE00939603 /* ControlImageView.swift in Sources */,
-				45BD5ED72941721100939603 /* PageModel.swift in Sources */,
-				45BD5EC3293F18E300939603 /* ContentView.swift in Sources */,
-				45BD5EC1293F18E300939603 /* PinchApp.swift in Sources */,
-				45BD5ED92941739600939603 /* PageData.swift in Sources */,
-				45BD5ED32940651800939603 /* InfoPanelView.swift in Sources */,
+				45BD5EE92941798800939603 /* ContentView.swift in Sources */,
+				45BD5EE72941798800939603 /* FruitsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		45BD5EC9293F18E500939603 /* Debug */ = {
+		45BD5EEF2941798900939603 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,7 +205,7 @@
 			};
 			name = Debug;
 		};
-		45BD5ECA293F18E500939603 /* Release */ = {
+		45BD5EF02941798900939603 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -307,27 +259,28 @@
 			};
 			name = Release;
 		};
-		45BD5ECC293F18E500939603 /* Debug */ = {
+		45BD5EF22941798900939603 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Pinch/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Fruits/Preview Content\"";
 				DEVELOPMENT_TEAM = 433LH3TNXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeonBlue.Pinch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeonBlue.Fruits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -335,27 +288,28 @@
 			};
 			name = Debug;
 		};
-		45BD5ECD293F18E500939603 /* Release */ = {
+		45BD5EF32941798900939603 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Pinch/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Fruits/Preview Content\"";
 				DEVELOPMENT_TEAM = 433LH3TNXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeonBlue.Pinch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeonBlue.Fruits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -366,25 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45BD5EB8293F18E300939603 /* Build configuration list for PBXProject "Pinch" */ = {
+		45BD5EDE2941798800939603 /* Build configuration list for PBXProject "Fruits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				45BD5EC9293F18E500939603 /* Debug */,
-				45BD5ECA293F18E500939603 /* Release */,
+				45BD5EEF2941798900939603 /* Debug */,
+				45BD5EF02941798900939603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45BD5ECB293F18E500939603 /* Build configuration list for PBXNativeTarget "Pinch" */ = {
+		45BD5EF12941798900939603 /* Build configuration list for PBXNativeTarget "Fruits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				45BD5ECC293F18E500939603 /* Debug */,
-				45BD5ECD293F18E500939603 /* Release */,
+				45BD5EF22941798900939603 /* Debug */,
+				45BD5EF32941798900939603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 45BD5EB5293F18E300939603 /* Project object */;
+	rootObject = 45BD5EDB2941798800939603 /* Project object */;
 }
