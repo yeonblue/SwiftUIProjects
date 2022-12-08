@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var imageOffset: CGSize = .zero
     
     // MARK: - Fuctions
-    func resetImageStaet() {
+    func resetImageState() {
         return withAnimation(.spring()) {
             imageScale = 1
             imageOffset = .zero
@@ -45,7 +45,7 @@ struct ContentView: View {
                                 imageScale = 5
                             }
                         } else {
-                            resetImageStaet()
+                            resetImageState()
                         }
                     }
                     .gesture(
@@ -57,7 +57,28 @@ struct ContentView: View {
                             })
                             .onEnded({ value in
                                 if imageScale <= 1 {
-                                    resetImageStaet()
+                                    resetImageState()
+                                }
+                            })
+                    )
+                    .gesture(
+                        MagnificationGesture()
+                            .onChanged({ value in
+                                withAnimation(.linear(duration: 1)) {
+                                    if imageScale >= 1 && imageScale <= 5 {
+                                        imageScale = value
+                                    } else if imageScale >= 5 {
+                                        imageScale = 5
+                                    } else if imageScale < 1 {
+                                        imageScale = 1
+                                    }
+                                }
+                            })
+                            .onEnded({ value in
+                                if imageScale >= 5 {
+                                    imageScale = 5
+                                } else if imageScale <= 1 {
+                                    imageScale = 1
                                 }
                             })
                     )
@@ -73,6 +94,53 @@ struct ContentView: View {
                 InfoPanelView(scale: imageScale, offset: imageOffset)
                     .padding(.horizontal)
                     .padding(.top, 30)
+            }
+            .overlay(alignment: .bottom) {
+                Group {
+                    HStack {
+                        
+                        // Scale Down Button(-1)
+                        Button {
+                            withAnimation(.spring()) {
+                                if imageScale > 1 {
+                                    imageScale -= 1
+                                }
+                                
+                                if imageScale <= 1 {
+                                    resetImageState()
+                                }
+                            }
+                        } label: {
+                            ControlImageView(iconName: "minus.magnifyingglass")
+                        }
+
+                        
+                        // Scale Reset Button
+                        Button {
+                            resetImageState()
+                        } label: {
+                            ControlImageView(iconName: "arrow.up.left.and.down.right.magnifyingglass")
+                        }
+                        
+                        // Scale Up Button(+1)
+                        Button {
+                            if imageScale < 5 {
+                                imageScale += 1
+                            }
+                            
+                            if imageScale >= 5 {
+                                imageScale = 5
+                            }
+                        } label: {
+                            ControlImageView(iconName: "plus.magnifyingglass")
+                        }
+                    }
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(8)
+                    .opacity(isAnimating ? 1 : 0)
+                }
+                .padding(.bottom, 30)
             }
         }
     }
