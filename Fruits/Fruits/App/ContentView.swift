@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - Properties
+    var fruits: [FruitModel] = fruitsData
+    
+    // MARK: - Body
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List(fruits) { fruit in
+                FruitRowView(fruit: fruit)
+                    .padding(.vertical, 4)
+            }
+            .navigationTitle("Fruits")
+            .navigationBarTitleDisplayMode(.large)
         }
-        .padding()
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(fruits: fruitsData)
     }
 }
