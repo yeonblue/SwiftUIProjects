@@ -17,6 +17,9 @@
 		45BD5EFE2941B9F100939603 /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5EFD2941B9F100939603 /* FruitModel.swift */; };
 		45BD5F012941BAA800939603 /* FruitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5F002941BAA800939603 /* FruitData.swift */; };
 		45BD5F032942B93000939603 /* FruitRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5F022942B93000939603 /* FruitRowView.swift */; };
+		45BD5F052942BF2C00939603 /* FruitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5F042942BF2C00939603 /* FruitDetailView.swift */; };
+		45BD5F0729430CF500939603 /* FruitHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5F0629430CF500939603 /* FruitHeaderView.swift */; };
+		45BD5F0929430FE700939603 /* SourceLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD5F0829430FE700939603 /* SourceLinkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		45BD5EFD2941B9F100939603 /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
 		45BD5F002941BAA800939603 /* FruitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitData.swift; sourceTree = "<group>"; };
 		45BD5F022942B93000939603 /* FruitRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitRowView.swift; sourceTree = "<group>"; };
+		45BD5F042942BF2C00939603 /* FruitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailView.swift; sourceTree = "<group>"; };
+		45BD5F0629430CF500939603 /* FruitHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitHeaderView.swift; sourceTree = "<group>"; };
+		45BD5F0829430FE700939603 /* SourceLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +69,10 @@
 		45BD5EE52941798800939603 /* Fruits */ = {
 			isa = PBXGroup;
 			children = (
+				45BD5EF42941823300939603 /* App */,
 				45BD5EFF2941BA9900939603 /* Data */,
 				45BD5EFC2941B9DC00939603 /* Model */,
 				45BD5EF52941825D00939603 /* View */,
-				45BD5EF42941823300939603 /* App */,
 				45BD5EEA2941798900939603 /* Assets.xcassets */,
 				45BD5EEC2941798900939603 /* Preview Content */,
 			);
@@ -87,6 +93,7 @@
 				45BD5EE62941798800939603 /* FruitsApp.swift */,
 				45BD5EE82941798800939603 /* ContentView.swift */,
 				45BD5EFA2941B87500939603 /* OnboardingView.swift */,
+				45BD5F042942BF2C00939603 /* FruitDetailView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 				45BD5EF62941828A00939603 /* FruitCardView.swift */,
 				45BD5EF82941B07600939603 /* StartButtonView.swift */,
 				45BD5F022942B93000939603 /* FruitRowView.swift */,
+				45BD5F0629430CF500939603 /* FruitHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				45BD5EFD2941B9F100939603 /* FruitModel.swift */,
+				45BD5F0829430FE700939603 /* SourceLinkView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -188,10 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				45BD5F012941BAA800939603 /* FruitData.swift in Sources */,
+				45BD5F0929430FE700939603 /* SourceLinkView.swift in Sources */,
 				45BD5EF72941828A00939603 /* FruitCardView.swift in Sources */,
 				45BD5F032942B93000939603 /* FruitRowView.swift in Sources */,
 				45BD5EF92941B07600939603 /* StartButtonView.swift in Sources */,
+				45BD5F052942BF2C00939603 /* FruitDetailView.swift in Sources */,
 				45BD5EE92941798800939603 /* ContentView.swift in Sources */,
+				45BD5F0729430CF500939603 /* FruitHeaderView.swift in Sources */,
 				45BD5EFB2941B87500939603 /* OnboardingView.swift in Sources */,
 				45BD5EFE2941B9F100939603 /* FruitModel.swift in Sources */,
 				45BD5EE72941798800939603 /* FruitsApp.swift in Sources */,

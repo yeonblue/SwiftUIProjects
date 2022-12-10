@@ -16,8 +16,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(fruits) { fruit in
-                FruitRowView(fruit: fruit)
-                    .padding(.vertical, 4)
+                
+                NavigationLink {
+                    FruitDetailView(fruit: fruit)
+                } label: {
+                    FruitRowView(fruit: fruit)
+                        .padding(.vertical, 4)
+                }
             }
             .navigationTitle("Fruits")
             .navigationBarTitleDisplayMode(.large)
