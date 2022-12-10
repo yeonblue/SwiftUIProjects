@@ -14,7 +14,7 @@ struct FruitDetailView: View {
     
     // MARK: - Body
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .center, spacing: 20) {
                     
@@ -36,6 +36,7 @@ struct FruitDetailView: View {
                             .multilineTextAlignment(.leading)
                         
                         // Nutrients
+                        FruitNutrientsView(fruit: fruit)
                         
                         // Sub-headline
                         Text("Learn more about \(fruit.title)".uppercased())
@@ -58,6 +59,7 @@ struct FruitDetailView: View {
             .toolbar(.hidden) // navigationBarhidden 대신 사용
             .edgesIgnoringSafeArea(.top)
         }
+        .navigationViewStyle(.stack) // iPad에서 split으로 안보이게 하기 위함
     }
 }
 
