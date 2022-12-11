@@ -13,13 +13,16 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                CoverImageView()
+                    .frame(height: 300)
+                    // default inset이 들어가므로 제거
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            }
+            .navigationTitle("Africa")
+            .navigationBarTitleDisplayMode(.large)
         }
-        .padding()
     }
 }
 
