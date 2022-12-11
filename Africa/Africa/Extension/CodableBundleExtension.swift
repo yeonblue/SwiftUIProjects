@@ -1,5 +1,5 @@
 //
-//  Codable+Extension.swift
+//  CodableBundleExtension.swift
 //  Africa
 //
 //  Created by yeonBlue on 2022/12/11.
@@ -8,7 +8,7 @@
 import Foundation
 
 extension Bundle {
-    func decode(_ file: String) -> [CoverImageModel] {
+    func decode<T: Codable>(_ file: String) -> [T] {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle")
         }
@@ -18,7 +18,7 @@ extension Bundle {
         }
         
         let decoder = JSONDecoder()
-        guard let coverImageModelData = try? decoder.decode([CoverImageModel].self, from: data) else {
+        guard let coverImageModelData = try? decoder.decode([T].self, from: data) else {
             fatalError("Failed to decode")
         }
         
