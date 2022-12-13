@@ -14,7 +14,7 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 CoverImageView()
                     .frame(height: 300)
