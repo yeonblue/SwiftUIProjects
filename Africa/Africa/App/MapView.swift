@@ -13,7 +13,9 @@ struct MapView: View {
     
     // MARK: - Body
     var body: some View {
-        Text("MapView")
+        VStack {
+            Text("MapView")
+        }
     }
 }
 
