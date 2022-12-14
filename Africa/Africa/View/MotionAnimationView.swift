@@ -35,11 +35,12 @@ struct MotionAnimationView: View {
                         )
                 }
             }
-            .drawingGroup() // 복잡한 렌더링 시 추가할 경우 앱 과부하 방지 가능, 비트맵으로 표시
+            .onAppear {
+                isAnimating = true
+            }
+            
         }
-        .onAppear {
-            isAnimating = true
-        }
+        .drawingGroup() // 복잡한 렌더링 시 추가할 경우 앱 과부하 방지 가능, 비트맵으로 표시
     }
     
      // MARK: - Functions
