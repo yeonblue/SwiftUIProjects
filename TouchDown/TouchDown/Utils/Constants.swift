@@ -12,6 +12,7 @@ let players: [PlayerModel] = Bundle.main.decode("player.json")
 let categories: [CategoryModel] = Bundle.main.decode("category.json")
 let products: [ProductModel] = Bundle.main.decode("product.json")
 let brands: [BrandModel] = Bundle.main.decode("brand.json")
+let sampleProduct: ProductModel = products[0]
 
 // MARK: - Layout
 let columnSpacing: CGFloat = 10
