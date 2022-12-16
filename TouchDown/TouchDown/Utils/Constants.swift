@@ -22,7 +22,4 @@ var gridLayout: [GridItem] {
 }
 
 // MARK: - API
-// MARK: - Font
-// MARK: - Data
-// MARK: - String
-
+let feedback = UIImpactFeedbackGenerator(style: .medium)

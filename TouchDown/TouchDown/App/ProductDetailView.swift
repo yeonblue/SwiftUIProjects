@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     // MARK: - Properties
-    let product: ProductModel
+    @EnvironmentObject var shop: Shop
     
     // MARK: - Body
     var body: some View {
@@ -23,12 +23,12 @@ struct ProductDetailView: View {
             
             
             // MARK: - Header
-            HeaderDetailView(product: product)
+            HeaderDetailView()
                 .padding(.horizontal)
                 .padding(.top, 16)
             
             // MARK: - Top part
-            TopPartDetailView(product: product)
+            TopPartDetailView()
                 .padding(.horizontal)
                 .zIndex(1) // z축이 위로오게 해서 그림이 위로 오게 수정
                 
@@ -40,7 +40,7 @@ struct ProductDetailView: View {
                 
                 // MARK: - Description
                 ScrollView(.vertical, showsIndicators: false) {
-                    Text(product.description)
+                    Text(shop.selectedProduct?.description ?? sampleProduct.description)
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.leading)
@@ -52,7 +52,7 @@ struct ProductDetailView: View {
                 
                 
                 // MARK: - Add to cart
-                AddToCartDetailView(product: product)
+                AddToCartDetailView()
                     .padding(.bottom, 32)
                 
                 Spacer()
@@ -67,14 +67,15 @@ struct ProductDetailView: View {
             
         }
         .ignoresSafeArea(.all, edges: .all)
-        .background(product.rgbColor)
+        .background(shop.selectedProduct?.rgbColor ?? sampleProduct.rgbColor)
     }
 }
 
 // MARK: - Preview
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView(product: sampleProduct)
+        ProductDetailView()
+            .environmentObject(Shop())
             .previewLayout(.fixed(width: 375, height: 812))
     }
 }
