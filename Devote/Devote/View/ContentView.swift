@@ -18,39 +18,34 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    @State var task: String = ""
-    private var isButtonDisabled: Bool {
-        return task.isEmpty
-    }
+    @State private var showNewTaskItemView = false
     
     // MARK: - Body
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
-                    
-                    VStack(spacing: 16) {
-                        TextField("New Task", text: $task)
-                            .padding()
-                            .background(Color(UIColor.systemGray6))
-                            .cornerRadius(8)
-                        
-                        Button {
-                            addItem()
-                        } label: {
-                            Spacer()
-                            Text("Save")
-                            Spacer()
-                        }
-                        .padding()
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .background(isButtonDisabled ? .gray : .pink)
-                        .cornerRadius(10)
-                        .disabled(isButtonDisabled)
 
+                    Spacer(minLength: 80)
+                    
+                    Button {
+                        showNewTaskItemView = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
                     }
-                    .padding()
+                    .foregroundColor(.white)
+                    .padding(16)
+                    .background(
+                        LinearGradient(colors: [.pink, .blue],
+                                       startPoint: .leading,
+                                       endPoint: .trailing)
+                        .clipShape(Capsule())
+                    )
+                    .shadow(color: .black.opacity(0.3), radius: 8)
+
                     
                     List {
                         ForEach(items) { item in
@@ -73,17 +68,27 @@ struct ContentView: View {
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
                 }
+                
+                if showNewTaskItemView {
+                    BlankView()
+                        .onTapGesture {
+                            withAnimation {
+                                showNewTaskItemView = false
+                            }
+                        }
+                    NewTaskItemView(isShowing: $showNewTaskItemView)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+                // ToolbarItem(placement: .navigationBarTrailing) {
+                //     Button(action: addItem) {
+                //         Label("Add Item", systemImage: "plus")
+                //     }
+                // }
             }
             .navigationTitle("Daily Tasks")
             .navigationBarTitleDisplayMode(.large)
@@ -93,26 +98,6 @@ struct ContentView: View {
     }
 
     // MARK: - Functions
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.task = task
-            newItem.completion = false
-            newItem.id = UUID()
-
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            
-            task = ""
-            hideKeyboard()
-        }
-    }
-
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
