@@ -16,6 +16,7 @@
 		456E890B294C93E5002A4BCF /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 456E8908294C93E4002A4BCF /* sound-tap.mp3 */; };
 		456E890C294C93E5002A4BCF /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 456E8909294C93E4002A4BCF /* sound-ding.mp3 */; };
 		456E890D294C93E5002A4BCF /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 456E890A294C93E5002A4BCF /* sound-rise.mp3 */; };
+		45DC8F68294D5D69002CD1EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC8F67294D5D69002CD1EE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		456E8909294C93E4002A4BCF /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		456E890A294C93E5002A4BCF /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		456E8914294C9513002A4BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		45DC8F67294D5D69002CD1EE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		456E8910294C943C002A4BCF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				45DC8F67294D5D69002CD1EE /* Constants.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DC8F68294D5D69002CD1EE /* Constants.swift in Sources */,
 				456E88FF294C91DD002A4BCF /* Persistence.swift in Sources */,
 				456E88F8294C91DB002A4BCF /* ContentView.swift in Sources */,
 				456E8902294C91DD002A4BCF /* Devote.xcdatamodeld in Sources */,
