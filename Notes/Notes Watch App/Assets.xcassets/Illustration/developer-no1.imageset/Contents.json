@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "developer-no1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

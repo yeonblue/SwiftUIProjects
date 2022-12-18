@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "rocket-small.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

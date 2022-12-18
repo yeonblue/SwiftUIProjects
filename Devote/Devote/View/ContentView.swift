@@ -29,7 +29,7 @@ struct ContentView: View {
 
                     HStack(spacing: 10) {
                         // Title
-                        Text("Devoce")
+                        Text("Devote")
                             .font(.system(.largeTitle, design: .rounded))
                             .fontWeight(.heavy)
                             .padding(.leading, 4)
