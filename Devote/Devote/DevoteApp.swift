@@ -9,12 +9,17 @@ import SwiftUI
 
 @main
 struct DevoteApp: App {
+    
+    // MARK: - Properties
+    @AppStorage("isDarkMode") var isDarkMode = false
     let persistenceController = PersistenceController.shared
 
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
