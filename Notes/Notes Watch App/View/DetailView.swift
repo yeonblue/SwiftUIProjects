@@ -14,19 +14,15 @@ struct DetailView: View {
     let count: Int
     let index: Int
     
+    @State private var isCreditsViewPresented = false
+    @State private var isSettingsViewPresented = false
+    
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center, spacing: 4) {
             
             // Header
-            HStack {
-                Capsule()
-                    .frame(height: 1)
-                Image(systemName: "note.text")
-                Capsule()
-                    .frame(height: 1)
-            }
-            .foregroundColor(.accentColor)
+            HeaderView()
             
             // Content
             Spacer()
@@ -41,12 +37,24 @@ struct DetailView: View {
             HStack(alignment: .center) {
                 Image(systemName: "gear")
                     .imageScale(.large)
+                    .onTapGesture {
+                        isSettingsViewPresented.toggle()
+                    }
                 Spacer()
                 Text("\(count) / \(index + 1)")
                 Spacer()
                 Image(systemName: "info.circle")
+                    .onTapGesture {
+                        isCreditsViewPresented.toggle()
+                    }
             }
             .foregroundColor(.secondary)
+            .sheet(isPresented: $isSettingsViewPresented) {
+                SettingView()
+            }
+            .sheet(isPresented: $isCreditsViewPresented) {
+                CreditsView() // watchOS에서는 Cancel버튼으로 뒤로 가기 가능
+            }
         }
         .padding(4)
     }

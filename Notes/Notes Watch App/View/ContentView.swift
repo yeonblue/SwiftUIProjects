@@ -10,17 +10,12 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: - Properties
+    @AppStorage("lineCount") var lineCount = 1
     @State private var notes: [Note] = []
     @State private var text: String = ""
     
     // MARK: - Functions
     func save() {
-        guard text.isEmpty == false else { return }
-        
-        let note = Note(id: UUID(), text: text)
-        notes.append(note)
-        text = ""
-        
         do {
             let data = try JSONEncoder().encode(notes)
             let url = getDocumentDirectory().appendingPathComponent("notes")
@@ -63,6 +58,12 @@ struct ContentView: View {
                     TextField("Add New Note", text: $text)
                     
                     Button {
+                        guard text.isEmpty == false else { return }
+                        
+                        let note = Note(id: UUID(), text: text)
+                        notes.append(note)
+                        text = ""
+                        
                         save()
                         
                     } label: {
@@ -88,7 +89,7 @@ struct ContentView: View {
                                         .foregroundColor(.accentColor)
                                     
                                     Text(notes[idx].text)
-                                        .lineLimit(1)
+                                        .lineLimit(lineCount)
                                         .padding(.leading, 5)
                                 }
                             }
