@@ -20,6 +20,37 @@ struct ContentView: View {
         let note = Note(id: UUID(), text: text)
         notes.append(note)
         text = ""
+        
+        do {
+            let data = try JSONEncoder().encode(notes)
+            let url = getDocumentDirectory().appendingPathComponent("notes")
+            try data.write(to: url)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getDocumentDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
+    }
+    
+    func load() {
+        DispatchQueue.main.async { // State를 onAppear에서 바로 변경하려면 다른 queue에서 진행해야 함
+            do {
+                let url = getDocumentDirectory().appendingPathComponent("notes")
+                let data = try Data(contentsOf: url)
+                
+                notes = try JSONDecoder().decode([Note].self, from: data)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteRow(offsets: IndexSet) {
+        notes.remove(atOffsets: offsets)
+        save()
     }
     
     // MARK: - Body
@@ -45,9 +76,38 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Text("\(notes.count)")
+                if !notes.isEmpty {
+                    List {
+                        ForEach(0..<notes.count, id: \.self) { idx in
+                            NavigationLink {
+                                DetailView(note: notes[idx], count: notes.count, index: idx)
+                            } label: {
+                                HStack {
+                                    Capsule()
+                                        .frame(width: 4)
+                                        .foregroundColor(.accentColor)
+                                    
+                                    Text(notes[idx].text)
+                                        .lineLimit(1)
+                                        .padding(.leading, 5)
+                                }
+                            }
+
+                        }
+                        .onDelete(perform: deleteRow)
+                    }
+                } else {
+                    Spacer()
+                    Image(systemName: "note.text")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.gray.opacity(0.3))
+                        .padding(32)
+                    Spacer()
+                }
             }
             .navigationTitle("Notes")
+            .onAppear(perform: load)
         }
     }
 }
