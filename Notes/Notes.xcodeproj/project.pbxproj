@@ -12,6 +12,7 @@
 		45DC8FA7294EFA57002CD1EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC8FA6294EFA57002CD1EE /* ContentView.swift */; };
 		45DC8FA9294EFA59002CD1EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DC8FA8294EFA59002CD1EE /* Assets.xcassets */; };
 		45DC8FAC294EFA59002CD1EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DC8FAB294EFA59002CD1EE /* Preview Assets.xcassets */; };
+		45DC8FB929517C55002CD1EE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC8FB829517C55002CD1EE /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		45DC8FA6294EFA57002CD1EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45DC8FA8294EFA59002CD1EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45DC8FAB294EFA59002CD1EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		45DC8FB829517C55002CD1EE /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				45DC8FA4294EFA57002CD1EE /* NotesApp.swift */,
-				45DC8FA6294EFA57002CD1EE /* ContentView.swift */,
+				45DC8FB729517C3F002CD1EE /* Model */,
+				45DC8FB629517C33002CD1EE /* View */,
 				45DC8FA8294EFA59002CD1EE /* Assets.xcassets */,
 				45DC8FAA294EFA59002CD1EE /* Preview Content */,
 			);
@@ -92,6 +95,22 @@
 				45DC8FAB294EFA59002CD1EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		45DC8FB629517C33002CD1EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45DC8FA6294EFA57002CD1EE /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45DC8FB729517C3F002CD1EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45DC8FB829517C55002CD1EE /* Note.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +213,7 @@
 			files = (
 				45DC8FA7294EFA57002CD1EE /* ContentView.swift in Sources */,
 				45DC8FA5294EFA57002CD1EE /* NotesApp.swift in Sources */,
+				45DC8FB929517C55002CD1EE /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
