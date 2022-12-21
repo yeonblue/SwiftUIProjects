@@ -2,23 +2,22 @@
 //  ContentView.swift
 //  LearnByDoing
 //
-//  Created by yeonBlue on 2022/12/20.
+//  Created by yeonBlue on 2022/12/21.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - Properties
+    
+    // MARK: - Body
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        CardView()
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
