@@ -13,7 +13,9 @@ struct CardView: View {
     @State private var fadeIn: Bool = false
     @State private var moveDown: Bool = false
     @State private var moveUp: Bool = false
+    @State private var showAlert: Bool = false
     var card: CardModel
+    var hapticImpact = UIImpactFeedbackGenerator(style: .medium)
     
     // MARK: - Body
     var body: some View {
@@ -36,6 +38,8 @@ struct CardView: View {
             
             Button {
                 playSound(sound: "sound-chime", type: "mp3")
+                hapticImpact.impactOccurred()
+                showAlert.toggle()
             } label: {
                 HStack(spacing: 8) {
                     Text(card.callToAction.uppercased())
@@ -70,6 +74,11 @@ struct CardView: View {
                 self.moveDown.toggle()
                 self.moveUp.toggle()
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(card.title),
+                  message: Text(card.message),
+                  dismissButton: .default(Text("OK"))) // iOS 14 방식
         }
     }
 }
