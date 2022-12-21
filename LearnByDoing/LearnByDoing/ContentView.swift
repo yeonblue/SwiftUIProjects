@@ -10,10 +10,17 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: - Properties
+    var cards: [CardModel] = cardData
     
     // MARK: - Body
     var body: some View {
-        CardView()
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .center, spacing: 16) {
+                ForEach(cards) { data in
+                    CardView(card: data)
+                }
+            }
+        }
     }
 }
 

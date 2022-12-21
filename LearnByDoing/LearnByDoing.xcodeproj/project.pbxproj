@@ -13,6 +13,10 @@
 		45969D942952997A00FB839A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45969D932952997A00FB839A /* Preview Assets.xcassets */; };
 		45B52D142952A2A000204D02 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B52D132952A2A000204D02 /* Launch Screen.storyboard */; };
 		45B52D162952A93A00204D02 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D152952A93A00204D02 /* CardView.swift */; };
+		45B52D182952CD9600204D02 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D172952CD9600204D02 /* CardModel.swift */; };
+		45B52D1A2952CF4600204D02 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D192952CF4600204D02 /* CardData.swift */; };
+		45B52D1C2952D16D00204D02 /* sound-chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45B52D1B2952D16D00204D02 /* sound-chime.mp3 */; };
+		45B52D1E2952D17D00204D02 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D1D2952D17D00204D02 /* PlaySound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		45969D932952997A00FB839A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45B52D132952A2A000204D02 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		45B52D152952A93A00204D02 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		45B52D172952CD9600204D02 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		45B52D192952CF4600204D02 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		45B52D1B2952D16D00204D02 /* sound-chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-chime.mp3"; sourceTree = "<group>"; };
+		45B52D1D2952D17D00204D02 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,10 @@
 				45969D902952997A00FB839A /* Assets.xcassets */,
 				45969D922952997A00FB839A /* Preview Content */,
 				45B52D152952A93A00204D02 /* CardView.swift */,
+				45B52D172952CD9600204D02 /* CardModel.swift */,
+				45B52D192952CF4600204D02 /* CardData.swift */,
+				45B52D1D2952D17D00204D02 /* PlaySound.swift */,
+				45B52D1B2952D16D00204D02 /* sound-chime.mp3 */,
 			);
 			path = LearnByDoing;
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45969D942952997A00FB839A /* Preview Assets.xcassets in Resources */,
+				45B52D1C2952D16D00204D02 /* sound-chime.mp3 in Resources */,
 				45B52D142952A2A000204D02 /* Launch Screen.storyboard in Resources */,
 				45969D912952997A00FB839A /* Assets.xcassets in Resources */,
 			);
@@ -144,7 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B52D1A2952CF4600204D02 /* CardData.swift in Sources */,
+				45B52D1E2952D17D00204D02 /* PlaySound.swift in Sources */,
 				45969D8F2952997900FB839A /* ContentView.swift in Sources */,
+				45B52D182952CD9600204D02 /* CardModel.swift in Sources */,
 				45B52D162952A93A00204D02 /* CardView.swift in Sources */,
 				45969D8D2952997900FB839A /* LearnByDoingApp.swift in Sources */,
 			);
@@ -283,7 +299,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,7 +330,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

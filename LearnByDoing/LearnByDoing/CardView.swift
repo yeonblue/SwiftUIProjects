@@ -10,31 +10,35 @@ import SwiftUI
 struct CardView: View {
     
     // MARK: - Properties
-    var gradient: [Color] = [Color("Color01"), Color("Color02")]
+    @State private var fadeIn: Bool = false
+    @State private var moveDown: Bool = false
+    @State private var moveUp: Bool = false
+    var card: CardModel
     
     // MARK: - Body
     var body: some View {
         ZStack {
-            Image("developer-no1")
+            Image(card.imageName)
+                .opacity(fadeIn ? 1.0 : 0.0)
             
             VStack {
-                Text("SwiftUI")
+                Text(card.title)
                     .foregroundColor(.white)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.center)
                 
-                Text("Better apps. Less code")
+                Text(card.headline)
                     .foregroundColor(.white)
                     .italic()
             }
-            .offset(y: -218)
+            .offset(y: moveDown ? -218 : -300)
             
             Button {
-                
+                playSound(sound: "sound-chime", type: "mp3")
             } label: {
                 HStack(spacing: 8) {
-                    Text("Learn".uppercased())
+                    Text(card.callToAction.uppercased())
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
                         .tint(.white)
@@ -46,24 +50,34 @@ struct CardView: View {
                 .padding(.vertical)
                 .padding(.horizontal, 24)
                 .background(
-                    LinearGradient(colors: gradient, startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(colors: card.gradientColors, startPoint: .leading, endPoint: .trailing)
                 )
                 .clipShape(Capsule())
                 .shadow(color: Color("colorShadow"), radius: 8)
             }
-            .offset(y: 210)
+            .offset(y: moveUp ? 210 : 300)
         }
         .frame(width: 335, height: 545)
-        .background(LinearGradient(colors: gradient, startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors: card.gradientColors, startPoint: .top, endPoint: .bottom))
         .cornerRadius(16)
         .shadow(radius: 8)
+        .onAppear {
+            withAnimation(.linear(duration: 1.3)) {
+                self.fadeIn.toggle()
+            }
+            
+            withAnimation(.linear(duration: 0.8)) {
+                self.moveDown.toggle()
+                self.moveUp.toggle()
+            }
+        }
     }
 }
 
 // MARK: - Preview
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView()
+        CardView(card: cardData.randomElement()!)
             .previewLayout(.sizeThatFits)
     }
 }
