@@ -26,18 +26,25 @@ struct ContentView: View {
                     }
                 }
                 
+                // MARK: - Dish Content
+                Text("Avocado Dishes")
+                    .fontWeight(.bold)
+                    .setTitleModifier()
+                
+                DishesView()
+                    .frame(maxWidth: 640)
+                
                 // MARK: - Footer
                 VStack(alignment: .center, spacing: 20) {
                     Text("All About Avocados")
-                        .font(.system(.title, design: .serif))
                         .fontWeight(.bold)
-                        .foregroundColor(Color("ColorGreenAdaptive"))
-                        .padding()
+                        .setTitleModifier()
                     
                     Text("Everything you wanted to know avout avocados but were too afraid to ask.")
                         .font(.system(.body, design: .serif))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.gray)
+                        .frame(minWidth: 60)
                     
                 }
                 .frame(maxWidth: 640)
@@ -53,5 +60,21 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+// MARK: - Modifier
+struct TitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(.title, design: .serif))
+            .foregroundColor(Color("ColorGreenAdaptive"))
+            .padding()
+    }
+}
+
+extension Text {
+    func setTitleModifier() -> some View {
+        modifier(TitleModifier())
     }
 }

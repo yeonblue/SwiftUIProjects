@@ -19,6 +19,8 @@
 		45B52D552953EC9300204D02 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D542953EC9200204D02 /* HeaderView.swift */; };
 		45B52D572953F6DC00204D02 /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D562953F6DC00204D02 /* HeaderModel.swift */; };
 		45B52D592953F70700204D02 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D582953F70700204D02 /* HeaderData.swift */; };
+		45B52D5B2954133A00204D02 /* DishesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D5A2954133A00204D02 /* DishesView.swift */; };
+		45B52D5D2954201F00204D02 /* FactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52D5C2954201F00204D02 /* FactsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		45B52D542953EC9200204D02 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		45B52D562953F6DC00204D02 /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
 		45B52D582953F70700204D02 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
+		45B52D5A2954133A00204D02 /* DishesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesView.swift; sourceTree = "<group>"; };
+		45B52D5C2954201F00204D02 /* FactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				45B52D502953E3E600204D02 /* SettingsView.swift */,
 				45B52D522953E42300204D02 /* AppView.swift */,
 				45B52D542953EC9200204D02 /* HeaderView.swift */,
+				45B52D5A2954133A00204D02 /* DishesView.swift */,
+				45B52D5C2954201F00204D02 /* FactsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +200,8 @@
 				45B52D4D2953E37D00204D02 /* AvocadosView.swift in Sources */,
 				45B52D572953F6DC00204D02 /* HeaderModel.swift in Sources */,
 				45B52D592953F70700204D02 /* HeaderData.swift in Sources */,
+				45B52D5B2954133A00204D02 /* DishesView.swift in Sources */,
+				45B52D5D2954201F00204D02 /* FactsView.swift in Sources */,
 				45B52D552953EC9300204D02 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
