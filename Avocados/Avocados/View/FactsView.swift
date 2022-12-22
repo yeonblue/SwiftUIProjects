@@ -10,11 +10,12 @@ import SwiftUI
 struct FactsView: View {
     
     // MARK: - Properties
+    let fact: Fact
     
     // MARK: - Body
     var body: some View {
         ZStack {
-            Text("LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem")
+            Text(fact.content)
                 .padding(.leading, 55)
                 .padding(.trailing, 10)
                 .padding(.vertical, 4)
@@ -31,7 +32,7 @@ struct FactsView: View {
                 .font(.footnote)
                 .foregroundColor(.white)
             
-            Image("avocado-fact-2")
+            Image(fact.image)
                 .resizable()
                 .frame(width: 66, height: 66, alignment: .center)
                 .clipShape(Circle())
@@ -57,7 +58,7 @@ struct FactsView: View {
 // MARK: - Preview
 struct FactsView_Previews: PreviewProvider {
     static var previews: some View {
-        FactsView()
+        FactsView(fact: factsData.randomElement()!)
             .previewLayout(.fixed(width: 414, height: 220))
     }
 }
