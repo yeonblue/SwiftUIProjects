@@ -28,19 +28,23 @@ struct InfoView: View {
                 } header: {
                     Text("About the application")
                 }
-
+                
             }
             .font(.system(.body, design: .rounded))
         }
         .padding(.top, 40)
         .overlay(alignment: .topTrailing) {
             Button {
+                audioPlayer?.stop()
                 dismiss()
             } label: {
                 Image(systemName: "xmark.circle")
                     .font(.title)
             }
             .padding([.top, .trailing], 32)
+        }
+        .onAppear {
+            playSound(sound: "background-music", type: "mp3")
         }
     }
 }

@@ -21,11 +21,17 @@ struct ContentView: View {
     @State private var isActiveBet10 = true
     @State private var isActiveBet20 = false
     
+    @State private var animatingSymbol = false
+    @State private var animatingModal = false
+    
     let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
+    let haptic = UINotificationFeedbackGenerator()
     
     // MARK: - Functions
     func spinReels() {
         reels = reels.map { _ in Int.random(in: 0...symbols.count - 1) }
+        playSound(sound: "spin", type: "mp3")
+        haptic.notificationOccurred(.success)
     }
     
     func checkWinning() {
@@ -37,6 +43,8 @@ struct ContentView: View {
             // Check HighScore
             if coins > highScore {
                 newHighScore()
+            } else {
+                playSound(sound: "win", type: "mp3")
             }
             
         } else {
@@ -50,6 +58,7 @@ struct ContentView: View {
     
     func newHighScore() {
         highScore = coins
+        playSound(sound: "high-score", type: "mp3")
     }
     
     func playerLoses() {
@@ -60,17 +69,22 @@ struct ContentView: View {
         betAmount = 20
         isActiveBet20 = true
         isActiveBet10 = false
+        playSound(sound: "casino-chips", type: "mp3")
+        haptic.notificationOccurred(.success)
     }
     
     func activeateBet10() {
         betAmount = 10
         isActiveBet20 = false
         isActiveBet10 = true
+        playSound(sound: "casino-chips", type: "mp3")
+        haptic.notificationOccurred(.success)
     }
     
     func isGameOver() {
         if coins <= 0 {
             showModal = true
+            playSound(sound: "game-over", type: "mp3")
         }
     }
     
@@ -78,6 +92,7 @@ struct ContentView: View {
         highScore = 0
         coins = 100
         activeateBet10()
+        playSound(sound: "chimeup", type: "mp3")
     }
     
     // MARK: - Body
@@ -132,6 +147,14 @@ struct ContentView: View {
                         ReelView()
                         Image(symbols[reels[0]])
                             .reelImageModifier()
+                            .opacity(animatingSymbol ? 1 : 0)
+                            .offset(y: animatingSymbol ? 0 : -50)
+                            .animation(.easeOut(duration: Double.random(in: 0.5...0.8)),
+                                       value: animatingSymbol)
+                            .onAppear {
+                                self.animatingSymbol.toggle()
+                                playSound(sound: "riseup", type: "mp3")
+                            }
                     }
                     
                     HStack(alignment: .center, spacing: 0) {
@@ -141,6 +164,13 @@ struct ContentView: View {
                             ReelView()
                             Image(symbols[reels[1]])
                                 .reelImageModifier()
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y: animatingSymbol ? 0 : -50)
+                                .animation(.easeOut(duration: Double.random(in: 0.7...1.0)),
+                                           value: animatingSymbol)
+                                .onAppear {
+                                    self.animatingSymbol.toggle()
+                                }
                         }
                         
                         Spacer()
@@ -150,13 +180,29 @@ struct ContentView: View {
                             ReelView()
                             Image(symbols[reels[2]])
                                 .reelImageModifier()
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y: animatingSymbol ? 0 : -50)
+                                .animation(.easeOut(duration: Double.random(in: 1.0...1.3)),
+                                           value: animatingSymbol)
+                                .onAppear {
+                                    self.animatingSymbol.toggle()
+                                }
                         }
                     }
                     .frame(maxWidth: 500)
 
                     // MARK: - Spin Button
                     Button {
+                        withAnimation {
+                            self.animatingSymbol = false
+                        }
+                        
                         self.spinReels()
+                        
+                        withAnimation {
+                            self.animatingSymbol = true
+                        }
+                        
                         self.checkWinning()
                         self.isGameOver()
                     } label: {
@@ -184,16 +230,20 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
+                            .offset(x: isActiveBet20 ? 0 : 20)
                             .opacity(isActiveBet20 ? 1 : 0)
                             .modifier(CasinoChipsModifier())
                             .animation(.default)
                         
                     }
                     
+                    Spacer()
+                    
                     HStack(alignment: .center, spacing: 10) {
                         Image("gfx-casino-chips")
                             .resizable()
                             .opacity(isActiveBet10 ? 1 : 0)
+                            .offset(x: isActiveBet10 ? 0 : -20)
                             .modifier(CasinoChipsModifier())
                             .animation(.default)
 
@@ -268,6 +318,9 @@ struct ContentView: View {
                             Button {
                                 self.showModal = false
                                 self.coins = 100
+                                
+                                self.activeateBet10()
+                                self.animatingModal = false
                             } label: {
                                 Text("New Game".uppercased())
                                     .font(.system(.body, design: .rounded))
@@ -293,6 +346,15 @@ struct ContentView: View {
                     .background(.white)
                     .cornerRadius(20)
                     .shadow(color: .colorTransparentBlack, radius: 8)
+                    .opacity(animatingModal ? 1 : 0)
+                    .offset(y: animatingModal ? 0 : -100)
+                    .animation(.spring(response: 0.6,
+                                       dampingFraction: 1.0,
+                                       blendDuration: 1.0),
+                               value: animatingModal)
+                    .onAppear {
+                        self.animatingModal = true
+                    }
                 }
             }
         }
