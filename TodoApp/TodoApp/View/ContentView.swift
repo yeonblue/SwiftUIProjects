@@ -14,9 +14,9 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Todo.name, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Todo>
 
     @State private var showingAddTodoView = false
     
@@ -47,8 +47,8 @@ struct ContentView: View {
     // MARK: - Functions
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Todo(context: viewContext)
+            newItem.name = "Dummy Data"
 
             do {
                 try viewContext.save()
