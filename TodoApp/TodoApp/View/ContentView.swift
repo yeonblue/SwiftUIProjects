@@ -19,10 +19,13 @@ struct ContentView: View {
     private var todos: FetchedResults<Todo>
 
     @State private var showingAddTodoView = false
+    @State private var showingSettingsView = false
+    
+    @State private var animatingButton = false
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 List {
                     ForEach(todos, id: \.self) { item in
@@ -44,20 +47,58 @@ struct ContentView: View {
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            self.showingAddTodoView.toggle()
+                            self.showingSettingsView.toggle()
                         } label: {
-                            Image(systemName: "plus")
+                            Image(systemName: "paintbrush")
                         }
                         
                     }
-                }
-                .sheet(isPresented: $showingAddTodoView) {
-                    AddTodoView()
                 }
                 
                 if todos.isEmpty {
                     EmptyListView()
                 }
+            }
+            .sheet(isPresented: $showingAddTodoView) {
+                AddTodoView()
+            }
+            .sheet(isPresented: $showingSettingsView) {
+                SettingsView()
+            }
+            .overlay(alignment: .bottomTrailing) {
+                
+                // MARK: - Overlay Buttons
+                ZStack {
+                    Group {
+                        Circle()
+                            .fill(.blue)
+                            .opacity(animatingButton ? 0.2 : 0)
+                            .scaleEffect(animatingButton ? 1 : 0)
+                            .frame(width: 68, height: 68, alignment: .center)
+                        
+                        Circle()
+                            .fill(.blue)
+                            .opacity(animatingButton ? 0.15 : 0)
+                            .scaleEffect(animatingButton ? 1 : 0)
+                            .frame(width: 88, height: 88, alignment: .center)
+                    }
+                    .animation(.easeOut(duration: 2).repeatForever(autoreverses: true),
+                               value: animatingButton)
+                    
+                    Button {
+                        self.showingAddTodoView.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .background(Circle().fill(Color("ColorBase")))
+                            .frame(width: 48, height: 48, alignment: .center)
+                    }
+                    .onAppear {
+                        self.animatingButton.toggle()
+                    }
+                }
+                .padding([.bottom, .trailing], 16)
             }
         }
     }
@@ -102,7 +143,6 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
             .environment(\.managedObjectContext,
                           PersistenceController.preview.container.viewContext)
     }
