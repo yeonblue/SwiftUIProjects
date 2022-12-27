@@ -19,6 +19,15 @@
 		45B52DEB295AE26400204D02 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52DEA295AE26400204D02 /* SettingsView.swift */; };
 		45B52DED295AE5FD00204D02 /* FormRowStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52DEC295AE5FD00204D02 /* FormRowStaticView.swift */; };
 		45B52DEF295AE7DC00204D02 /* FormRowLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B52DEE295AE7DC00204D02 /* FormRowLinkView.swift */; };
+		45B52DFA295B0DD700204D02 /* Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF1295B0DD600204D02 /* Green.png */; };
+		45B52DFB295B0DD700204D02 /* Pink Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF2295B0DD600204D02 /* Pink Dark.png */; };
+		45B52DFC295B0DD700204D02 /* Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF3295B0DD600204D02 /* Blue.png */; };
+		45B52DFD295B0DD700204D02 /* Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF4295B0DD600204D02 /* Pink.png */; };
+		45B52DFE295B0DD700204D02 /* Pink Light.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF5295B0DD600204D02 /* Pink Light.png */; };
+		45B52DFF295B0DD700204D02 /* Blue Light.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF6295B0DD700204D02 /* Blue Light.png */; };
+		45B52E00295B0DD700204D02 /* Green Light.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF7295B0DD700204D02 /* Green Light.png */; };
+		45B52E01295B0DD700204D02 /* Blue Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF8295B0DD700204D02 /* Blue Dark.png */; };
+		45B52E02295B0DD700204D02 /* Green Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B52DF9295B0DD700204D02 /* Green Dark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +44,16 @@
 		45B52DEA295AE26400204D02 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		45B52DEC295AE5FD00204D02 /* FormRowStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowStaticView.swift; sourceTree = "<group>"; };
 		45B52DEE295AE7DC00204D02 /* FormRowLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowLinkView.swift; sourceTree = "<group>"; };
+		45B52DF1295B0DD600204D02 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Green.png; sourceTree = "<group>"; };
+		45B52DF2295B0DD600204D02 /* Pink Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink Dark.png"; sourceTree = "<group>"; };
+		45B52DF3295B0DD600204D02 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue.png; sourceTree = "<group>"; };
+		45B52DF4295B0DD600204D02 /* Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pink.png; sourceTree = "<group>"; };
+		45B52DF5295B0DD600204D02 /* Pink Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink Light.png"; sourceTree = "<group>"; };
+		45B52DF6295B0DD700204D02 /* Blue Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Light.png"; sourceTree = "<group>"; };
+		45B52DF7295B0DD700204D02 /* Green Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green Light.png"; sourceTree = "<group>"; };
+		45B52DF8295B0DD700204D02 /* Blue Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Dark.png"; sourceTree = "<group>"; };
+		45B52DF9295B0DD700204D02 /* Green Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green Dark.png"; sourceTree = "<group>"; };
+		45B52E03295B0EFF00204D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +86,9 @@
 		45B52DCF29598BF100204D02 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
+				45B52E03295B0EFF00204D02 /* Info.plist */,
 				45B52DD029598BF100204D02 /* TodoAppApp.swift */,
+				45B52DF0295B0DA000204D02 /* Icons */,
 				45B52DE329598EDC00204D02 /* View */,
 				45B52DD429598BF400204D02 /* Assets.xcassets */,
 				45B52DD929598BF400204D02 /* Persistence.swift */,
@@ -97,6 +118,22 @@
 				45B52DEE295AE7DC00204D02 /* FormRowLinkView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		45B52DF0295B0DA000204D02 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				45B52DF8295B0DD700204D02 /* Blue Dark.png */,
+				45B52DF6295B0DD700204D02 /* Blue Light.png */,
+				45B52DF3295B0DD600204D02 /* Blue.png */,
+				45B52DF9295B0DD700204D02 /* Green Dark.png */,
+				45B52DF7295B0DD700204D02 /* Green Light.png */,
+				45B52DF1295B0DD600204D02 /* Green.png */,
+				45B52DF2295B0DD600204D02 /* Pink Dark.png */,
+				45B52DF5295B0DD600204D02 /* Pink Light.png */,
+				45B52DF4295B0DD600204D02 /* Pink.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +194,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B52E02295B0DD700204D02 /* Green Dark.png in Resources */,
 				45B52DE7295AC6FE00204D02 /* LaunchScreen.storyboard in Resources */,
+				45B52DFA295B0DD700204D02 /* Green.png in Resources */,
+				45B52E01295B0DD700204D02 /* Blue Dark.png in Resources */,
 				45B52DD829598BF400204D02 /* Preview Assets.xcassets in Resources */,
+				45B52DFE295B0DD700204D02 /* Pink Light.png in Resources */,
+				45B52DFC295B0DD700204D02 /* Blue.png in Resources */,
 				45B52DD529598BF400204D02 /* Assets.xcassets in Resources */,
+				45B52DFF295B0DD700204D02 /* Blue Light.png in Resources */,
+				45B52DFB295B0DD700204D02 /* Pink Dark.png in Resources */,
+				45B52DFD295B0DD700204D02 /* Pink.png in Resources */,
+				45B52E00295B0DD700204D02 /* Green Light.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +356,7 @@
 				DEVELOPMENT_TEAM = 433LH3TNXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -340,6 +387,7 @@
 				DEVELOPMENT_TEAM = 433LH3TNXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

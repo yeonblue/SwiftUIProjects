@@ -11,6 +11,7 @@ struct SettingsView: View {
     
     // MARK: - Properties
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var iconSettings: IconNames
     
     // MARK: - Body
     var body: some View {
@@ -19,6 +20,59 @@ struct SettingsView: View {
                 
                 // MARK: - Form
                 Form {
+                    
+                    // MARK: - Icons
+                    Section {
+                        Picker(selection: $iconSettings.currentIndex) {
+                            ForEach(0..<iconSettings.iconNames.count, id: \.self) { idx in
+                                HStack {
+                                    Image(uiImage: UIImage(named: iconSettings.iconNames[idx] ?? "Blue") ?? UIImage())
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 44, height: 44)
+                                        .cornerRadius(8)
+                                    
+                                    Spacer().frame(width: 8)
+                                    
+                                    Text(iconSettings.iconNames[idx] ?? "Blue")
+                                }
+                                .padding(4)
+                            }
+                        } label: {
+                            HStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .strokeBorder(.primary, lineWidth: 2)
+                                    Image(systemName: "paintbrush")
+                                        .font(.system(size: 28, weight: .regular))
+                                    .foregroundColor(.primary)
+                                }
+                                .frame(width: 44, height: 44)
+                                
+                                Text("App Icons".uppercased())
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
+                            }
+                        }
+
+                    } header: {
+                        Text("Choose the app icon")
+                    }
+                    .pickerStyle(.navigationLink)
+                    .onReceive(iconSettings.$currentIndex) { idx in
+                        let index = self.iconSettings.iconNames.firstIndex(of: UIApplication.shared.alternateIconName) ?? 0
+                        
+                        if index != idx {
+                            UIApplication.shared.setAlternateIconName(self.iconSettings.iconNames[idx]) { err in
+                                if let err = err {
+                                    print(err.localizedDescription)
+                                } else {
+                                    print("Icon change success")
+                                }
+                            }
+                        }
+                    }
                     
                     // MARK: - Section(Link)
                     Section {
@@ -87,5 +141,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(IconNames())
     }
 }
