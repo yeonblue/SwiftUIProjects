@@ -17,6 +17,8 @@
 		45C8B76B295C19DF0041B9FE /* HoneymoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B76A295C19DF0041B9FE /* HoneymoonModel.swift */; };
 		45C8B76D295C1A130041B9FE /* HoneymoonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B76C295C1A130041B9FE /* HoneymoonData.swift */; };
 		45C8B770295C1A780041B9FE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B76F295C1A780041B9FE /* CardView.swift */; };
+		45C8B772295C20410041B9FE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B771295C20410041B9FE /* HeaderView.swift */; };
+		45C8B774295C31F60041B9FE /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B773295C31F60041B9FE /* FooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		45C8B76A295C19DF0041B9FE /* HoneymoonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoneymoonModel.swift; sourceTree = "<group>"; };
 		45C8B76C295C1A130041B9FE /* HoneymoonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoneymoonData.swift; sourceTree = "<group>"; };
 		45C8B76F295C1A780041B9FE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		45C8B771295C20410041B9FE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		45C8B773295C31F60041B9FE /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 			children = (
 				45B52E38295C0F4000204D02 /* ContentView.swift */,
 				45C8B76F295C1A780041B9FE /* CardView.swift */,
+				45C8B771295C20410041B9FE /* HeaderView.swift */,
+				45C8B773295C31F60041B9FE /* FooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C8B76D295C1A130041B9FE /* HoneymoonData.swift in Sources */,
+				45C8B774295C31F60041B9FE /* FooterView.swift in Sources */,
+				45C8B772295C20410041B9FE /* HeaderView.swift in Sources */,
 				45C8B76B295C19DF0041B9FE /* HoneymoonModel.swift in Sources */,
 				45B52E39295C0F4000204D02 /* ContentView.swift in Sources */,
 				45B52E37295C0F4000204D02 /* HoneymoonApp.swift in Sources */,

@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        CardView(honeymoon: honeymoonDatas.randomElement()!)
+        VStack(alignment: .center, spacing: 8) {
+            HeaderView()
+            
+            Spacer()
+            
+            CardView(honeymoon: honeymoonDatas.randomElement()!)
+                .padding()
+    
+            Spacer()
+            
+            FooterView()
+        }
     }
 }
 
