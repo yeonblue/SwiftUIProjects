@@ -10,6 +10,7 @@ import SwiftUI
 struct FooterView: View {
     
     // MARK: - Properties
+    @Binding var showBookingAlert: Bool
     
     // MARK: - Body
     var body: some View {
@@ -19,7 +20,7 @@ struct FooterView: View {
                 
             Spacer()
             Button {
-                
+                showBookingAlert.toggle()
             } label: {
                 Text("Book Destination".uppercased())
                     .font(.system(.subheadline, design: .rounded))
@@ -45,7 +46,7 @@ struct FooterView: View {
 // MARK: - Preview
 struct FooterView_Previews: PreviewProvider {
     static var previews: some View {
-        FooterView()
+        FooterView(showBookingAlert: .constant(false))
             .previewLayout(.fixed(width: 375, height: 80))
     }
 }
