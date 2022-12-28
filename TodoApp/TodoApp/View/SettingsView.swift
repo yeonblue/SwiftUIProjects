@@ -13,6 +13,10 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var iconSettings: IconNames
     
+    // Theme
+    @AppStorage("themeSettings") var themeSettings: Int = 0
+    let themes: [Theme] = themeDatas
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -74,6 +78,32 @@ struct SettingsView: View {
                         }
                     }
                     
+                    // MARK: - App Theme
+                    Section {
+                        List(themes) { theme in
+                            Button {
+                                self.themeSettings = theme.id
+                            } label: {
+                                HStack {
+                                    Image(systemName: "circle.fill")
+                                        .foregroundColor(theme.themeColor)
+                                    Text(theme.themeName)
+                                }
+                                .tint(.primary)
+                            }
+
+                        }
+                    } header: {
+                        HStack {
+                            Text("Choose the app theme")
+                            Image(systemName: "circle.fill")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(themes[themeSettings].themeColor)
+                        }
+                    }
+
+                    
                     // MARK: - Section(Link)
                     Section {
                         FormRowLinkView(icon: "globe",
@@ -134,6 +164,7 @@ struct SettingsView: View {
                 }
             }
         }
+        .tint(themes[themeSettings].themeColor)
     }
 }
 

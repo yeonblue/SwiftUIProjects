@@ -23,6 +23,10 @@ struct ContentView: View {
     
     @State private var animatingButton = false
     
+    // Theme
+    @AppStorage("themeSettings") var themeSettings: Int = 0
+    let themes: [Theme] = themeDatas
+    
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -30,10 +34,22 @@ struct ContentView: View {
                 List {
                     ForEach(todos, id: \.self) { item in
                         HStack {
+                            Circle()
+                                .frame(width: 12, height: 12)
+                                .foregroundColor(colorrize(priority: item.priority ?? "Normal"))
                             Text(item.name ?? "Unknown")
+                                .fontWeight(.semibold)
                             Spacer()
                             Text(item.priority ?? "Unknown")
+                                .font(.footnote)
+                                .padding(4)
+                                .frame(minWidth: 64)
+                                .overlay {
+                                    Capsule()
+                                        .stroke(Color(UIColor.systemGray2), lineWidth: 1)
+                                }
                         }
+                        .padding(8)
                     }
                     .onDelete(perform: deleteTodo)
                 }
@@ -43,6 +59,7 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         EditButton()
+                            .tint(themes[themeSettings].themeColor)
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -51,6 +68,7 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "paintbrush")
                         }
+                        .tint(themes[themeSettings].themeColor)
                         
                     }
                 }
@@ -71,13 +89,13 @@ struct ContentView: View {
                 ZStack {
                     Group {
                         Circle()
-                            .fill(.blue)
+                            .fill(themes[themeSettings].themeColor)
                             .opacity(animatingButton ? 0.2 : 0)
                             .scaleEffect(animatingButton ? 1 : 0)
                             .frame(width: 68, height: 68, alignment: .center)
                         
                         Circle()
-                            .fill(.blue)
+                            .fill(themes[themeSettings].themeColor)
                             .opacity(animatingButton ? 0.15 : 0)
                             .scaleEffect(animatingButton ? 1 : 0)
                             .frame(width: 88, height: 88, alignment: .center)
@@ -94,6 +112,7 @@ struct ContentView: View {
                             .background(Circle().fill(Color("ColorBase")))
                             .frame(width: 48, height: 48, alignment: .center)
                     }
+                    .tint(themes[themeSettings].themeColor)
                     .onAppear {
                         self.animatingButton.toggle()
                     }
@@ -104,20 +123,6 @@ struct ContentView: View {
     }
 
     // MARK: - Functions
-    private func addTodo() {
-        withAnimation {
-            let newItem = Todo(context: viewContext)
-            newItem.name = "Dummy Data"
-
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
     private func deleteTodo(offsets: IndexSet) {
         withAnimation {
             offsets.map { todos[$0] }.forEach(viewContext.delete)
@@ -128,6 +133,19 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+        }
+    }
+    
+    private func colorrize(priority: String) -> Color {
+        switch priority {
+            case "High":
+                return .pink
+            case "Normal":
+                return .green
+            case "Low":
+                return .blue
+            default:
+                return .gray
         }
     }
 }

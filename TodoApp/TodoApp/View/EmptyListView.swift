@@ -28,19 +28,27 @@ struct EmptyListView: View {
         "Each night schedule for tomorrow."
     ]
     
+    // Theme
+    @AppStorage("themeSettings") var themeSettings: Int = 0
+    let themes: [Theme] = themeDatas
+    
     // MARK: - Body
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 20) {
                 Image(images.randomElement()!)
                     .resizable()
+                    .renderingMode(.template)
                     .scaledToFit()
                     .frame(minWidth: 256, idealWidth: 280, maxWidth: 360,
                            minHeight: 256, idealHeight: 280, maxHeight: 360,
                            alignment: .center)
                     .layoutPriority(1) // 변동 크기 설정부분이 있을 때 우선도 설정해서 크기가 지정되도록
+                    .foregroundColor(themes[themeSettings].themeColor)
+                
                 Text(tips.randomElement()!)
                     .font(.system(.headline, design: .rounded))
+                    .foregroundColor(themes[themeSettings].themeColor)
             }
             .padding(.horizontal)
             .opacity(isAnimated ? 1 : 0)

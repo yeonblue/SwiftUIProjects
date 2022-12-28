@@ -23,6 +23,10 @@ struct AddTodoView: View {
     
     let priorites = ["High", "Normal", "Low"]
     
+    // Theme
+    @AppStorage("themeSettings") var themeSettings: Int = 0
+    let themes: [Theme] = themeDatas
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -65,7 +69,7 @@ struct AddTodoView: View {
                             .font(.system(size: 24, weight: .bold, design: .default))
                             .padding()
                             .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(.blue)
+                            .background(themes[themeSettings].themeColor)
                             .cornerRadius(8)
                             .foregroundColor(.white)
                     }
@@ -93,6 +97,7 @@ struct AddTodoView: View {
                       dismissButton: .default(Text("OK"))) // iOS 14방식
             }
         }
+        .tint(themes[themeSettings].themeColor)
     }
 }
 
