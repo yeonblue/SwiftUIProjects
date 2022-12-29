@@ -48,18 +48,20 @@ struct ContentView: View {
     @State var showAlert = false
     @State var showGuideView = false
     @State var showInfoView = false
-    @GestureState var dragState: DragState = .inactive
     
+    @GestureState var dragState: DragState = .inactive
     private var dragAreaThreshold: CGFloat = 65.0
     
     // Card
-    var cardViews: [CardView] = {
+    @State var lastCardIdx: Int = 1
+    @State var cardViews: [CardView] = {
         var cardViews: [CardView] = []
         for idx in 0..<2 {
             cardViews.append(CardView(honeymoon: honeymoonDatas[idx]))
         }
         return cardViews
     }()
+    @State var cardRemovalTransition: AnyTransition = .trailingBottom
     
     // MARK: - Functions
     private func isTopCard(cardView: CardView) -> Bool {
@@ -68,6 +70,15 @@ struct ContentView: View {
         }
         
         return index == 0
+    }
+    
+    private func addCardView() {
+        cardViews.removeFirst()
+        self.lastCardIdx += 1
+        
+        let honeymoon = honeymoonDatas[lastCardIdx % honeymoonDatas.count]
+        let newCardView = CardView(honeymoon: honeymoon)
+        cardViews.append(newCardView)
     }
     
     // MARK: - Body
@@ -87,14 +98,16 @@ struct ContentView: View {
                     cardView
                         .zIndex(self.isTopCard(cardView: cardView) ? 1 : 0)
                         .overlay {
-                            // xmark symbol
-                            Image(systemName: "x.circle")
-                                .modifier(SymbolModifier())
-                                .opacity(dragState.translation.width < -dragAreaThreshold && isTopCard(cardView: cardView) ? 1.0 : 0.0)
-                            
-                            Image(systemName: "heart.circle")
-                                .modifier(SymbolModifier())
-                                .opacity(dragState.translation.width > dragAreaThreshold && isTopCard(cardView: cardView) ? 1.0 : 0.0)
+                            if isTopCard(cardView: cardView) {
+                                // xmark symbol
+                                Image(systemName: "x.circle")
+                                    .modifier(SymbolModifier())
+                                    .opacity(dragState.translation.width < -dragAreaThreshold ? 1.0 : 0.0)
+                                
+                                Image(systemName: "heart.circle")
+                                    .modifier(SymbolModifier())
+                                    .opacity(dragState.translation.width > dragAreaThreshold ? 1.0 : 0.0)
+                            }
                         }
                         .offset(x: isTopCard(cardView: cardView) ? dragState.translation.width : 0,
                                 y: isTopCard(cardView: cardView) ? dragState.translation.height : 0)
@@ -115,7 +128,28 @@ struct ContentView: View {
                                             break
                                     }
                                 })
+                                .onChanged({ value in
+                                    guard case .second(true, let drag?) = value else {
+                                        return
+                                    }
+                                    
+                                    if drag.translation.width < -self.dragAreaThreshold {
+                                        cardRemovalTransition = .leadingBottom
+                                    } else if drag.translation.width > self.dragAreaThreshold {
+                                        cardRemovalTransition = .leadingBottom
+                                    }
+                                })
+                                .onEnded({ value in
+                                    guard case .second(true, let drag) = value else {
+                                        return
+                                    }
+                                    
+                                    if abs(drag?.translation.width ?? 0.0) >= dragAreaThreshold {
+                                        self.addCardView()
+                                    }
+                                })
                         )
+                        .transition(cardRemovalTransition)
                 }
             }
     

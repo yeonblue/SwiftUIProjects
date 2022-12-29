@@ -26,6 +26,7 @@
 		45C8B780295D67C60041B9FE /* TitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B77F295D67C60041B9FE /* TitleModifier.swift */; };
 		45C8B782295D69220041B9FE /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B781295D69220041B9FE /* ButtonModifier.swift */; };
 		45C8B784295D8C850041B9FE /* SymbolModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B783295D8C850041B9FE /* SymbolModifier.swift */; };
+		45C8B787295DB4B60041B9FE /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B786295DB4B60041B9FE /* CardTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		45C8B77F295D67C60041B9FE /* TitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModifier.swift; sourceTree = "<group>"; };
 		45C8B781295D69220041B9FE /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		45C8B783295D8C850041B9FE /* SymbolModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolModifier.swift; sourceTree = "<group>"; };
+		45C8B786295DB4B60041B9FE /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				45B52E36295C0F4000204D02 /* HoneymoonApp.swift */,
+				45C8B785295DB4980041B9FE /* Extension */,
 				45C8B77E295D67A70041B9FE /* Utils */,
 				45C8B775295C32FF0041B9FE /* Components */,
 				45C8B76E295C1A170041B9FE /* View */,
@@ -150,6 +153,14 @@
 				45C8B783295D8C850041B9FE /* SymbolModifier.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		45C8B785295DB4980041B9FE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				45C8B786295DB4B60041B9FE /* CardTransition.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 				45C8B77D295D672A0041B9FE /* InfoView.swift in Sources */,
 				45C8B774295C31F60041B9FE /* FooterView.swift in Sources */,
 				45C8B780295D67C60041B9FE /* TitleModifier.swift in Sources */,
+				45C8B787295DB4B60041B9FE /* CardTransition.swift in Sources */,
 				45C8B784295D8C850041B9FE /* SymbolModifier.swift in Sources */,
 				45C8B772295C20410041B9FE /* HeaderView.swift in Sources */,
 				45C8B76B295C19DF0041B9FE /* HoneymoonModel.swift in Sources */,
