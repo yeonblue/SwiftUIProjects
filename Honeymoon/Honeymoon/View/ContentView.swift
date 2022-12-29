@@ -50,6 +50,8 @@ struct ContentView: View {
     @State var showInfoView = false
     @GestureState var dragState: DragState = .inactive
     
+    private var dragAreaThreshold: CGFloat = 65.0
+    
     // Card
     var cardViews: [CardView] = {
         var cardViews: [CardView] = []
@@ -84,6 +86,16 @@ struct ContentView: View {
                 ForEach(cardViews) { cardView in
                     cardView
                         .zIndex(self.isTopCard(cardView: cardView) ? 1 : 0)
+                        .overlay {
+                            // xmark symbol
+                            Image(systemName: "x.circle")
+                                .modifier(SymbolModifier())
+                                .opacity(dragState.translation.width < -dragAreaThreshold && isTopCard(cardView: cardView) ? 1.0 : 0.0)
+                            
+                            Image(systemName: "heart.circle")
+                                .modifier(SymbolModifier())
+                                .opacity(dragState.translation.width > dragAreaThreshold && isTopCard(cardView: cardView) ? 1.0 : 0.0)
+                        }
                         .offset(x: isTopCard(cardView: cardView) ? dragState.translation.width : 0,
                                 y: isTopCard(cardView: cardView) ? dragState.translation.height : 0)
                         .scaleEffect(dragState.isDragging && isTopCard(cardView: cardView) ? 0.85 : 1.0)
