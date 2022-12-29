@@ -11,11 +11,12 @@ struct ContentView: View {
     
     // MARK: - Properties
     @State var showAlert = false
+    @State var showGuideView = false
     
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            HeaderView()
+            HeaderView(showGuideView: $showGuideView)
             
             Spacer()
             
@@ -34,6 +35,9 @@ struct ContentView: View {
         
         } message: {
             Text("Wishing a lovely and most precious of the times together for the amazing couple.")
+        }
+        .sheet(isPresented: $showGuideView) {
+            GuideView()
         }
     }
 }

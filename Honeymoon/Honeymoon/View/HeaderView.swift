@@ -10,6 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     
     // MARK: - Properties
+    @Binding var showGuideView: Bool
     
     // MARK: - Body
     var body: some View {
@@ -30,7 +31,7 @@ struct HeaderView: View {
             Spacer()
             
             Button {
-                
+                showGuideView.toggle()
             } label: {
                 Image(systemName: "questionmark.circle")
                     .font(.system(size: 24, weight: .regular))
@@ -45,7 +46,7 @@ struct HeaderView: View {
 // MARK: - Preview
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        HeaderView(showGuideView: .constant(false))
             .previewLayout(.fixed(width: 375, height: 80))
     }
 }
