@@ -146,6 +146,7 @@ struct ContentView: View {
                                     
                                     if abs(drag?.translation.width ?? 0.0) >= dragAreaThreshold {
                                         self.addCardView()
+                                        playSound(sound: "sound-rise", type: "mp3")
                                     }
                                 })
                         )

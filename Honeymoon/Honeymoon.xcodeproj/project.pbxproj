@@ -27,6 +27,7 @@
 		45C8B782295D69220041B9FE /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B781295D69220041B9FE /* ButtonModifier.swift */; };
 		45C8B784295D8C850041B9FE /* SymbolModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B783295D8C850041B9FE /* SymbolModifier.swift */; };
 		45C8B787295DB4B60041B9FE /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B786295DB4B60041B9FE /* CardTransition.swift */; };
+		45C8B789295DB74E0041B9FE /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B788295DB74E0041B9FE /* PlaySound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		45C8B781295D69220041B9FE /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		45C8B783295D8C850041B9FE /* SymbolModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolModifier.swift; sourceTree = "<group>"; };
 		45C8B786295DB4B60041B9FE /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
+		45C8B788295DB74E0041B9FE /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				45C8B77F295D67C60041B9FE /* TitleModifier.swift */,
 				45C8B781295D69220041B9FE /* ButtonModifier.swift */,
 				45C8B783295D8C850041B9FE /* SymbolModifier.swift */,
+				45C8B788295DB74E0041B9FE /* PlaySound.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				45C8B772295C20410041B9FE /* HeaderView.swift in Sources */,
 				45C8B76B295C19DF0041B9FE /* HoneymoonModel.swift in Sources */,
 				45C8B782295D69220041B9FE /* ButtonModifier.swift in Sources */,
+				45C8B789295DB74E0041B9FE /* PlaySound.swift in Sources */,
 				45C8B777295C33120041B9FE /* HeaderComponent.swift in Sources */,
 				45B52E39295C0F4000204D02 /* ContentView.swift in Sources */,
 				45B52E37295C0F4000204D02 /* HoneymoonApp.swift in Sources */,
