@@ -20,8 +20,7 @@ struct GuideView: View {
                 Spacer(minLength: 10)
                 Text("Get Started!")
                     .fontWeight(.black)
-                    .font(.largeTitle)
-                    .foregroundColor(.pink)
+                    .modifier(TitleModifier())
                 
                 Text("Discover and pick the perfect destination for your romantic Honeymoon!")
                   .multilineTextAlignment(.center)
@@ -52,14 +51,7 @@ struct GuideView: View {
                     dismiss()
                 } label: {
                     Text("Continue".uppercased())
-                        .font(.headline)
-                        .padding()
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .background {
-                            Capsule()
-                                .fill(.pink)
-                        }
+                        .modifier(ButtonModifier())
                 }
 
             }
